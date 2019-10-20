@@ -1,0 +1,95 @@
+body{
+    font-family: 'Mansalva', cursive;
+}
+
+.site-in{
+    display:flex;
+    justify-content: space-between;
+    background: rgb(37, 97, 156);
+    height: 20vh;
+    color: white;
+
+}
+h1{
+    margin: 20px 40px;
+
+}
+h2{
+    
+    color:black;
+    text-align: center;
+}
+
+nav a{
+    color:white;
+    display:inline-block;
+    background: #141313;
+    margin: 25px 10px;
+    font-size: 20px;
+    padding: 20px;
+    font-style: none;
+    text-decoration: none;
+    border-radius:5px;
+}
+.main-in{
+    height: 60vh;
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+}
+.img-logo{
+    width: 300px;
+    text-align: center;
+}
+.img-logo-register{
+    width: 200px;
+}
+.list-pets{
+    width: 80%;
+    height: 20vh;
+    justify-content: center;
+    margin: auto;
+}
+.footer-in{
+    background: rgb(37, 97, 156);
+    color:white;
+    font-size: 14px;
+    height: 10vh;
+    display:flex;
+    flex-direction: column;
+}
+.menu-footer nav a{
+    font-size: 14px;
+    color: white;
+    text-decoration:none;
+    justify-content: center;
+    margin: 20px 40px;
+    display: inline-block;
+}
+.register-form{
+    margin-left:0px;
+    margin-bottom: 50px;
+
+}
+input[type="text"],select{
+width: 400px;
+padding: 3px;
+border-radius: 5px;
+border:1px solid black;
+}
+.btn{
+    background:#a7a7a7;
+    color:black;
+    padding: 10px;
+    font-family: 'Mansalva', cursive;
+    
+}
+
+.search-bar{
+    margin: auto;
+    display: auto;
+    justify-content: space-around;
+    padding:0px;
+    width:15rem;
+}
