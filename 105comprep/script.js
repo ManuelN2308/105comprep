@@ -21,8 +21,8 @@ let {name,phone,address:{street,number},workingHours:{days,open,close}}=salon;
 
 document.querySelector('.info').innerHTML =`<h1> Welcome to ${name} Salon </h1> <br> <p> Contact us ${phone}, ${street} ${number} <br> It is open from ${open} to ${close} </p>`;
 
-document.querySelector('footer .info').innerHTML = `<p> Contact us ${phone}, ${street} ${number} <br> It is open from ${open} to ${close} </p>`;
-var petc=0;
+/* document.querySelector('footer .info').innerHTML = `<p> Contact us ${phone}, ${street} ${number} <br> It is open from ${open} to ${close} </p>`;
+var petc=0; */
 
 class Pet {
     constructor(name, age, type, gender, breed, service, ownerName, contactPhone) {
@@ -36,8 +36,8 @@ class Pet {
         this.service = service;
         this.ownerName = ownerName;
         this.contactPhone = contactPhone;  
-        this.id="pet"+petc; 
-        petc += 1; // incrementing 1x1 
+        this.id="pet"+ petc; 
+        petc =+ 1; // incrementing 1x1 
     }
     status=function(){
         console.log("happiness:" + this.happiness + "hunger:"+this.hunger);
@@ -83,7 +83,7 @@ function clean(){
 
 function displayTable(aPet){
     var tBody = document.getElementById('listBody');
-    var row = `<tr>
+    var row = `<tr id = "${aPet.id}">
     <td>${aPet.name}</td>
     <td>${aPet.age}</td>
     <td>${aPet.type}</td>
@@ -96,6 +96,8 @@ function displayTable(aPet){
 </tr>;`  
 
 tBody.innerHTML+=row;
+
+console.log('add' + aPet);
 
 }
 
@@ -117,7 +119,7 @@ function remove(petId){
     tr.remove();
 }
 function search(){
-    var searchString = document.getElementById('inputSearch').value;
+    var searchString = document.getElementById('search').value;
     var theFoundPet;
 
     for( var j=0; j<salon.pets.length;j++)
