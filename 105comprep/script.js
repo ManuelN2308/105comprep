@@ -16,13 +16,14 @@ const salon={
     }
     
 }
+salon.count();
 
 let {name,phone,address:{street,number},workingHours:{days,open,close}}=salon;
 
 document.querySelector('.info').innerHTML =`<h1> Welcome to ${name} Salon </h1> <br> <p> Contact us ${phone}, ${street} ${number} <br> It is open from ${open} to ${close} </p>`;
 
-/* document.querySelector('footer .info').innerHTML = `<p> Contact us ${phone}, ${street} ${number} <br> It is open from ${open} to ${close} </p>`;
-var petc=0; */
+/* document.querySelector('footer .info').innerHTML = `<p> Contact us ${phone}, ${street} ${number} <br> It is open from ${open} to ${close} </p>`;*/
+var petc=0;
 
 class Pet {
     constructor(name, age, type, gender, breed, service, ownerName, contactPhone) {
@@ -63,10 +64,12 @@ var txtOwnerName = document.getElementById('ownerName');
 var txtContactPhone = document.getElementById('contactPhone');
 
 function register(){
-    const pet1 = new Pet(txtName.value, txtAge.value, txtType.value, txtGender.value, txtBreed.value, txtService.value, txtOwnerName.value, txtContactPhone.value);
+    const thePet = new Pet(txtName.value, txtAge.value, txtType.value, txtGender.value, txtBreed.value, txtService.value, txtOwnerName.value, txtContactPhone.value);
 
-    console.log(txtName.value);
-    displayTable(pet1);
+    salon.pets.push(thePet);
+    clean();
+    alert("You have registerd a pet");
+    displayTable(thePet);
 
 }
 function clean(){
@@ -93,7 +96,7 @@ function displayTable(aPet){
     <td>${aPet.ownerName}</td>
     <td>${aPet.contactPhone}</td>
     <td> <button onclick='remove("${aPet.id}");'> Delete </button> </td>
-</tr>;`  
+</tr>`;  
 
 tBody.innerHTML+=row;
 
@@ -104,38 +107,35 @@ console.log('add' + aPet);
 function remove(petId){
     console.log('You want to delete ' + petId);
     var tr = document.getElementById(petId);
-    var indexDelete=0;
+    var indexDelete;
 
     for( var i=0; i<salon.pets.length;i++)
     {
         var indexPets = salon.pets[i];
-
         if(indexPets.id==petId)
         {
            indexDelete=i;
         }
     }
-    salon.pets.splice(index.Delete,1);
+    salon.pets.splice(indexDelete,1);
     tr.remove();
 }
 function search(){
-    var searchString = document.getElementById('search').value;
-    var theFoundPet;
+    var searchString = document.getElementById('inputSearch').value;
 
-    for( var j=0; j<salon.pets.length;j++)
+    for(var j=0; j<salon.pets.length;j++)
     {
-        var selectedPet = salon.pets[j];
+        var searchedPet = salon.pets[j];
 
-        if(selectedPet.id==searchString)
+        if(searchedPet.id==searchString)
         {
            theFoundPet=j;
-           document.getElementById('pet'+theFoundPet).setAttribute('class','selected');
+           document.getElementById('pet' + theFoundPet).setAttribute('class','selected');
         }
     }
 }
 
 
-salon.count();
 
 
 

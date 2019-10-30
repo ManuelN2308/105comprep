@@ -50,16 +50,17 @@
 
             </form>
             <input class="btn" type="submit" value="Register" onclick="register();">
+            <div class="search-bar" >
+                <input type="text" id="inputSearch">
+                <button class="btn" onclick="search();">Search</button>
+            </div>
         </div>
         </div>
     
     </main>
     <br/>
     <br/>
-    <div class="search-bar" >
-        <input type="text" id="search">
-        <button class="btn" onclick="search();">Search</button>
-    </div>
+    
     <section class="list-pets">
         <h2>Register Pets</h2>
 
@@ -74,7 +75,7 @@
                     <th>Service</th>
                     <th>Owner Name</th>
                     <th>Contact Phone</th>
-                    <input class="btn" type="submit" value="Delete" onclick="remove();">
+                    <!-- <input class="btn" type="submit" value="Delete" onclick="remove();"> -->
                 </thead>
                 <tbody id="listBody">
                     
